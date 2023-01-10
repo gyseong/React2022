@@ -1,18 +1,20 @@
 import "./styles.css";
+import { useState, useEffect } from "react";
+import { ColoredMessage } from "./components/ColoredMessage";
 
 export const App = () => {
-  const contentStyle = {
-    color: "blue",
-    fontSize: "20px"
-  };
+  const [num, setNum] = useState(0);
+
   const onClickButton = () => {
-    alert();
+    setNum(num + 1);
   };
   return (
-    <div>
+    <>
       <h1 style={{ color: "red" }}>안녕하세요!</h1>
-      <p style={contentStyle}>잘 지내시죠?</p>
+      <ColoredMessage color="blue">잘 지내시죠?</ColoredMessage>
+      <ColoredMessage color="pink">잘 지내죠ㅋㅋ</ColoredMessage>
       <button onClick={onClickButton}>버튼</button>
-    </div>
+      <p>{num}</p>
+    </>
   );
 };
